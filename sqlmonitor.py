@@ -1,5 +1,6 @@
 import sqlite3
 import json
+from unicodedata import name
 
 totry = 0
 final = 0
@@ -37,6 +38,14 @@ try:
     # Fetch and output result
     result = cursor.fetchall()
     heartbeat = result
+
+    # Finds the id and name of each monitor
+    query = "SELECT name, id FROM monitor"
+    cursor.execute(query)
+  
+    # Fetch and output result
+    result = cursor.fetchall()
+    nameList = result
   
     # Close the cursor
     cursor.close()
@@ -54,10 +63,19 @@ finally:
 
 beatdict = {}
 for item in heartbeat:
-    beatdict.update({item[0]: item[1]})
+    if beatdict.get(item[0]) == None:
+        beatdict.update({item[0]: item[1]})
+
+namedict = {}
+for line in nameList:
+    namedict.update({line[0]: line[1]})
 
 jsonob = "let incoming = '" + str(json.dumps(beatdict)) + "\'"
+nameob = "let nameList = '" + str(json.dumps(namedict)) + "\'"
 
 f = open("demofile2.txt", "w")
 f.write(jsonob)
+f.write('\n')
+f.write(nameob)
 f.close()
+
