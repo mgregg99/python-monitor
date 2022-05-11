@@ -1,0 +1,79 @@
+<html>
+
+<link rel="stylesheet" href="mystyle.css">
+<body>
+
+  <div class="row">
+    <div class="column">
+      <div id="chart1">
+        <canvas id="myChart"></canvas>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="demofile2.txt"></script>
+      <script>
+        const obj = JSON.parse(incoming)
+        var upnum = 0
+        var downnum = 0
+
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                console.log(key + " -> " + obj[key]);
+                if (obj[key] == 1){
+                    upnum++
+                }
+                else{
+                    downnum++
+                }
+            }
+        }
+        console.log(upnum)
+        console.log(downnum)
+      
+      const data = {
+      labels: [
+        'Up',
+        'Down'
+      ],
+      datasets: [{
+        label: 'My First Dataset',
+        data: [upnum, downnum],
+        backgroundColor: [
+          'rgb(75, 255, 192)',
+          'rgb(255, 99, 132)'
+        ],
+        hoverOffset: 10
+      }]
+    };
+      
+        const config = {
+          type: 'doughnut',
+          data: data,
+          options: {}
+        };
+      </script>
+      <script>
+        const myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+        );
+      </script>
+    </div>
+    <div class="column">
+        <div class="row">
+            <div class="column">
+                <ul>
+                    <li>Apple</li>
+                </ul>
+            </div>
+            <div class="column">
+                <ul>
+                    <li>Apple</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
