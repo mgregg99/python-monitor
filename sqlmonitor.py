@@ -1,6 +1,7 @@
 import sqlite3
 import json
 from unicodedata import name
+import datetime
 
 totry = 0
 final = 0
@@ -72,10 +73,12 @@ for line in nameList:
 
 jsonob = "let incoming = '" + str(json.dumps(beatdict)) + "\'"
 nameob = "let nameList = '" + str(json.dumps(namedict)) + "\'"
+now = datetime.datetime.now()
 
 f = open("demofile2.txt", "w")
 f.write(jsonob)
 f.write('\n')
 f.write(nameob)
+f.write('\n //' + now.strftime("%Y-%m-%d %H:%M:%S"))
 f.close()
 
