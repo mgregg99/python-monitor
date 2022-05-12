@@ -78,7 +78,7 @@ jsonob = "let incoming = '" + str(json.dumps(beatdict)) + "\'"
 nameob = "let nameList = '" + str(json.dumps(namedict)) + "\'"
 now = datetime.datetime.now()
 
-f = open("jsonfile.txt", "w")
+f = open("/home/byu.local/mgregg99/python-monitor/jsonfile.txt", "w")
 f.write(jsonob)
 f.write('\n')
 f.write(nameob)

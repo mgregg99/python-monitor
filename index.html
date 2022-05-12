@@ -29,7 +29,10 @@
   <script src="jsonfile.txt"></script>
   <script src="script.js"></script>
   <script>
-    w = new Worker("restart.js");
+    window.onload = setTimeout(myFunction, 120000)
+    function myFunction(){
+      location.reload()
+    }
   </script>
 
 </body>
