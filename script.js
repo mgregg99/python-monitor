@@ -57,7 +57,7 @@ var htmladd1 = ""
 for (var key in obj) {
     if (obj.hasOwnProperty(key)) {
         if (obj[key] == 0){
-            htmladd1 += "<li class='downlist'> 🔴 <a href='http://ut.ls.byu.edu/dashboard/" + nameobj[key] + "' target='_blank'>" + key + "</a></li>" 
+            htmladd1 += "<li class='downlist'> &#128308; <a href='http://ut.ls.byu.edu/dashboard/" + nameobj[key] + "' target='_blank'>" + key + "</a></li>" 
         }
     }
 }
