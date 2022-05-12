@@ -8,7 +8,7 @@ between = 0
 
 try:
     # Connect to DB and create a cursor
-    sqliteConnection = sqlite3.connect('kuma.db')
+    sqliteConnection = sqlite3.connect('/var/lib/docker/volumes/uptime-kuma/_data/kuma.db')
     cursor = sqliteConnection.cursor()
     print('DB Init')
   
