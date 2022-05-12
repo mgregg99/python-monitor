@@ -1,12 +1,13 @@
 // Reading in the JSON File
-const obj = JSON.parse(incoming)
-const nameobj = JSON.parse(nameList)
+const obj = JSON.parse(incoming) // Name of monitor : status (1 = up)
+const nameobj = JSON.parse(nameList) // Name of monitor : id
+
+
+// Count the number of monitors up and down
 var upnum = 0
 var downnum = 0
-
 for (var key in obj) {
     if (obj.hasOwnProperty(key)) {
-        console.log(key + " -> " + obj[key]);
         if (obj[key] == 1){
             upnum++
         }
@@ -15,8 +16,6 @@ for (var key in obj) {
         }
     }
 }
-console.log(upnum)
-console.log(downnum)
 
 // Adding the Counters to the bar
 
