@@ -53,6 +53,9 @@ try:
 
 except sqlite3.Error as error:
     print('Error occured - ', error)
+    f = open("errorfile.txt", "w")
+    f.write('Error occured - ', error)
+    f.close()
 
 
 finally:
@@ -75,7 +78,7 @@ jsonob = "let incoming = '" + str(json.dumps(beatdict)) + "\'"
 nameob = "let nameList = '" + str(json.dumps(namedict)) + "\'"
 now = datetime.datetime.now()
 
-f = open("demofile2.txt", "w")
+f = open("jsonfile.txt", "w")
 f.write(jsonob)
 f.write('\n')
 f.write(nameob)
