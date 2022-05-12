@@ -82,6 +82,6 @@ f = open("jsonfile.txt", "w")
 f.write(jsonob)
 f.write('\n')
 f.write(nameob)
-f.write('\n //' + now.strftime("%Y-%m-%d %H:%M:%S"))
+f.write('\n// ' + now.strftime("%Y-%m-%d %H:%M:%S"))
 f.close()
 
