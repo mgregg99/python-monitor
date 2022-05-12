@@ -1,3 +1,7 @@
+# This Script Makes SQL quires to the database then outputs the info in a JSON format
+# This Script is run by a cron job on the host.
+
+
 import sqlite3
 import json
 from unicodedata import name
