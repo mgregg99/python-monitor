@@ -1,10 +1,17 @@
-FROM python:3
+FROM ubuntu:latest
 
-WORKDIR /usr/src/app
+RUN apt-get update -y && \
+    apt-get install -y python3-pip python3-dev
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+# We copy just the requirements.txt first to leverage Docker cache
+COPY ./requirements.txt /app/requirements.txt
 
-COPY . .
+WORKDIR /app
 
-CMD [ "python", "./myapp.py" ]
+RUN pip install -r requirements.txt
+
+COPY . /app
+
+ENTRYPOINT [ "python3" ]
+
+CMD [ "myapp.py" ]
