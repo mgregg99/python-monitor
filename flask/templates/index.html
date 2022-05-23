@@ -1,0 +1,40 @@
+<html>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
+<body>
+  
+  <ul id="nav">
+    <li class="navb"><h1 id="name">LSIT Uptime Monitor</h1></li>
+    <li class="navb"><h1 id="upnum">Up: 155</h1></li>
+    <li class="navb"><h1 id="downnum">Down: 3</h1></li>
+    <li class="navb"><iframe src="https://free.timeanddate.com/clock/i8bnh8w2/n2128/fs48/fcfff/tct/pct/ftb" frameborder="0" width="325" height="57" allowtransparency="true"></iframe></li>
+  </ul>
+
+  <div class="row">
+    <div class="column">
+      <div id="chart1">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <div class="column">
+        <ul id="col1">
+          <li> &#128308; Somethings Broke</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="jsonfile.txt"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script>
+    window.onload = setTimeout(myFunction, 120000)
+    function myFunction(){
+      location.reload()
+    }
+  </script>
+
+</body>
+</html>
+
