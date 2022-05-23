@@ -6,6 +6,7 @@ import sqlite3
 import json
 from unicodedata import name
 import datetime
+import requests
 
 totry = 0
 final = 0
@@ -81,11 +82,7 @@ for line in nameList:
 jsonob = "let incoming = '" + str(json.dumps(beatdict)) + "\'"
 nameob = "let nameList = '" + str(json.dumps(namedict)) + "\'"
 now = datetime.datetime.now()
+time = '// ' + now.strftime("%Y-%m-%d %H:%M:%S")
 
-f = open("/home/byu.local/mgregg99/python-monitor/jsonfile.txt", "w")
-f.write(jsonob)
-f.write('\n')
-f.write(nameob)
-f.write('\n// ' + now.strftime("%Y-%m-%d %H:%M:%S"))
-f.close()
+r = requests.post('http://localhost:5000/update', data={'status': jsonob, 'mid': nameob, 'time': time})
 

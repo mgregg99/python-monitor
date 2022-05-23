@@ -1,0 +1,70 @@
+:root {
+    --background: #161618;
+    font-family: futura-pt, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+}
+
+#chart1 {
+    height: 500px;
+    width: 500px;
+}
+
+.row {
+    display: flex;
+}
+  
+.column {
+    flex: 50%;
+}
+
+#nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--background);
+  }
+
+  
+.navb {
+    display: block;
+    padding: 8px;
+    background-color: white;
+    float: left;
+    padding-right: 44px;
+    background-color: var(--background);
+}
+
+#upnum{
+    background-color: #4bffc0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#downnum {
+    background-color: #ff6384;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.downlist{
+    list-style-type: none;
+    padding: 10px;
+    font-size: 30px;
+    color: white;
+}
+
+body {
+    background-color: var(--background);
+}
+
+#name {
+    color: white;
+    font-size: 2.5em;
+}
+
+a {
+    font-family: futura-pt, sans-serif;
+    color: white;
+}
