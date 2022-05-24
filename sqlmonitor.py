@@ -85,4 +85,3 @@ now = datetime.datetime.now()
 time = '// ' + now.strftime("%Y-%m-%d %H:%M:%S")
 
 r = requests.post('http://localhost:5000/update', data={'status': jsonob, 'mid': nameob, 'time': time})
-

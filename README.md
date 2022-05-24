@@ -9,6 +9,6 @@ This website was designed to give us a monitor that would give us quick stats fo
 This assumes that you already have installed Uptime-Kuma
 
 1. Clone the git repository.
-2. Edit the location of the output file in the python script. Its a varible at the top of the page.
-3. Edit the the crontab to run the python script. It will look something like this: ` * * * * * root python3 /home/byu.local/mgregg99/python-monitor/sqlmonitor.py`
-4. Make Apache HTTPD docker container to serve the website. cd into the project then run `docker run -dit --name my-apache-app -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.4`
+2. Edit the the crontab to run the python script. It will look something like this: ` * * * * * root python3 /home/byu.local/mgregg99/python-monitor/sqlmonitor.py`
+3. Spin up the docker container with ` docker run -d -p 5000:5000 mgregg99/python-monitor `
+4. If your docker container is running on a differnet server or a port other than 5000, you will need to edit the final line of the sqlmonitor.py script to point to the docker container.
