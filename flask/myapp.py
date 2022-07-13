@@ -1,5 +1,5 @@
 from crypt import methods
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -64,6 +64,11 @@ def home():
             downnum += 1
 
     return render_template('index.html', monitorList=monitorList, upnum=upnum, downnum=downnum)
+
+# return the favicon
+@app.route('/favicon.ico')
+def favicon():
+    return send_file('favicon.ico', mimetype='image/ico')
 
 
 
