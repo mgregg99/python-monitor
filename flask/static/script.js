@@ -1,26 +1,6 @@
-// Reading in the JSON File
-const obj = JSON.parse(incoming) // Name of monitor : status (1 = up)
-const nameobj = JSON.parse(nameList) // Name of monitor : id
 
-
-// Count the number of monitors up and down
-var upnum = 0
-var downnum = 0
-for (var key in obj) {
-    if (obj.hasOwnProperty(key)) {
-        if (obj[key] == 1){
-            upnum++
-        }
-        else{
-            downnum++
-        }
-    }
-}
 
 // Adding the Counters to the bar
-
-document.getElementById("upnum").innerHTML = "Up: " + upnum
-document.getElementById("downnum").innerHTML = "Down: " + downnum
 
 // Displaying the Graph
 
@@ -47,18 +27,3 @@ const config = {
 };
 
 const myChart = new Chart(document.getElementById('myChart'), config);
-
-
-// Listing the monitors that are down
-var interval = 0
-var htmladd1 = ""
-
-for (var key in obj) {
-    if (obj.hasOwnProperty(key)) {
-        if (obj[key] == 0){
-            htmladd1 += "<li class='downlist'> &#128308; <a href='http://ut.ls.byu.edu/dashboard/" + nameobj[key] + "' target='_blank'>" + key + "</a></li>" 
-        }
-    }
-}
-
-document.getElementById("col1").innerHTML = htmladd1

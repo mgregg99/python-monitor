@@ -4,9 +4,10 @@
 <body>
   
   <ul id="nav">
+
     <li class="navb"><h1 id="name">LSIT Uptime Monitor</h1></li>
-    <li class="navb"><h1 id="upnum">Up: 155</h1></li>
-    <li class="navb"><h1 id="downnum">Down: 3</h1></li>
+    <li class="navb"><h1 id="upnum">Up: {{upnum}}</h1></li>
+    <li class="navb"><h1 id="downnum">Down: {{downnum}}</h1></li>
     <li class="navb"><iframe src="https://free.timeanddate.com/clock/i8bnh8w2/n2128/fs48/fcfff/tct/pct/ftb" frameborder="0" width="325" height="57" allowtransparency="true"></iframe></li>
   </ul>
 
@@ -18,7 +19,12 @@
     </div>
     <div class="column">
         <ul id="col1">
-          <li> &#128308; Somethings Broke</li>
+          {% for line in monitorList %}
+            {% if line[1] == '0' %}
+            <li class='downlist'> &#128308; {{line[0]}}</li>
+            {% else %}
+            {% endif %}
+          {% endfor %}
         </ul>
       </div>
     </div>
@@ -26,7 +32,10 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="{{ url_for('static', filename='jsonfile.txt') }}"></script>
+  <script>
+    var upnum = {{upnum}};
+    var downnum = {{downnum}};
+  </script>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
   <script>
     window.onload = setTimeout(myFunction, 120000)

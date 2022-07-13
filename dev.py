@@ -1,8 +1,13 @@
-from crypt import methods
-from flask import Flask, render_template, request
 import requests
 from bs4 import BeautifulSoup
 import json
+
+
+
+asdf = apiScrape()
+
+
+
 
 def apiScrape():
     # Get the data from UK and make the Beautiful soup object
@@ -48,25 +53,21 @@ def apiScrape():
     
     return returnList
 
-app = Flask(__name__)
 
 
-@app.route("/")
-@app.route("/home")
-def home():
-    monitorList = apiScrape()
-    upnum = 0
-    downnum = 0
-    for line in monitorList:
-        if line[1] == '1':
-            upnum += 1
-        else:
-            downnum += 1
-
-    return render_template('index.html', monitorList=monitorList, upnum=upnum, downnum=downnum)
+    
 
 
 
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+
+
+
+
+
+
+
+
+    
+
+    
